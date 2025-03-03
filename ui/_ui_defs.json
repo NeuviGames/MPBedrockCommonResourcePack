@@ -1,0 +1,12 @@
+{
+    "ui_defs": [
+        "ui/mineplex/server_form.jsonc",
+        "ui/mineplex/scoreboards.jsonc",
+        "ui/mineplex/hud_screen.jsonc",
+        "ui/mineplex/builtin/scoreboards/norankings.jsonc",
+        "ui/mineplex/builtin/hud_screen/titles.jsonc",
+        "ui/mineplex/builtin/server_form/wide_form.jsonc",
+        "ui/mineplex/builtin/server_form/icon_grid.jsonc",
+        "ui/mineplex/builtin/server_form/image_grid.jsonc"
+    ]
+}

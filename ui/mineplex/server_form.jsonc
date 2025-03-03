@@ -1,0 +1,40 @@
+{
+    "namespace": "mineplex_server_form",
+
+    "form": {
+        "type": "panel",
+        "controls": [
+            // Standard Bedrock Form
+            {
+                "long_form@common_dialogs.main_panel_no_buttons": {
+                    "$title_panel": "common_dialogs.standard_title_label",
+                    "$title_size": ["100% - 14px", 10],
+                    "size": [225, 200],
+                    "$text_name": "#title_text",
+                    "$title_text_binding_type": "none",
+                    "$child_control": "server_form.long_form_panel",
+                    "layer": 2,
+                    "bindings": [
+                        {
+                            "binding_name": "#title_text"
+                        },
+                        {
+                            "source_property_name": "(#title_text = (#title_text - 'com.mineplex.studio.'))",
+                            "binding_type": "view",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+
+            // Wider Form - com.mineplex.studio.utils.long_form.wide
+            { "wide_form@mineplex_server_form_builtin_wide_form.long_form": {} },
+
+            // Icon Grid - com.mineplex.studio.utils.long_form.icon_grid
+            { "icon_grid@mineplex_server_form_builtin_icon_grid.long_form": {} },
+
+            // Image Grid - com.mineplex.studio.utils.long_form.image_grid
+            { "image_grid@mineplex_server_form_builtin_image_grid.long_form": {} }
+        ]
+    }
+}

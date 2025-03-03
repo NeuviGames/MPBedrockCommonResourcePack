@@ -1,0 +1,245 @@
+{
+    "namespace": "mineplex_server_form_builtin_image_grid",
+
+    "long_form@common_dialogs.main_panel_no_buttons": {
+        "$title_panel": "common_dialogs.standard_title_label",
+        "$title_size": ["100% - 14px", 10],
+        "size": [460, 200],
+        "$text_name": "#title_text",
+        "$title_text_binding_type": "none",
+        "$child_control": "mineplex_server_form_builtin_image_grid.long_form_panel",
+        "layer": 2,
+        "bindings": [
+            {
+                "binding_name": "#title_text"
+            },
+            {
+                "source_property_name": "(not (#title_text = (#title_text - 'com.mineplex.studio.utils.long_form.image_grid')))",
+                "binding_type": "view",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "common_panel@common.common_panel": { "$dialog_background": "$custom_background" }
+            },
+            {
+                "title_label@common_dialogs.title_label": {
+                    "controls": [
+                        {
+                            "common_dialogs_0@standard_title_label": {
+                                "text": "#title_text",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#title_text"
+                                    },
+                                    {
+                                        "source_property_name": "(#title_text - 'com.mineplex.studio.utils.long_form.image_grid')",
+                                        "binding_type": "view",
+                                        "target_property_name": "#title_text"
+                                    }
+                                ]
+                            }
+                        }
+                        
+                    ]
+                }
+            },
+            {
+                "panel_indent": {
+                    "type": "panel",
+                    "size": "$panel_indent_size",
+                    "offset": [ 0, 23 ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "controls": [
+                        { "inside_header_panel@$child_control": {} }
+                    ]
+                }
+            }
+        ]
+    },
+
+    "long_form_panel": {
+		"type": "stack_panel",
+		"size": ["100%", "100%"],
+		"orientation": "vertical",
+		"controls": [
+			{
+				"scrolling_panel@common.scrolling_panel": {
+					"anchor_to": "top_left",
+					"anchor_from": "top_left",
+					"$show_background": false,
+					"size": ["100%", "100%"],
+					"$scrolling_content": "mineplex_server_form_builtin_image_grid.content_panel",
+					"$scroll_size": [5, "100% - 4px"],
+					"$scrolling_pane_size": ["100% - 4px", "100% - 2px"],
+					"$scrolling_pane_offset": [2, 0],
+					"$scroll_bar_right_padding_size": [0, 0]
+				}
+			}
+		]
+	},
+
+	"content_panel": {
+		"type": "stack_panel",
+		"size": ["100%", "100%c + 10px"],
+        "orientation": "vertical",
+		"controls": [
+            {
+                "padding": {
+                    "type": "panel",
+                    "size": [ "100%", 8 ]
+                }
+            },
+            {
+                "label_container": {
+                    "type": "panel",
+                    "size": ["100%", "100%c"],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "controls": [
+                        {
+                            "form_description": {
+                                "type": "label",
+                                "offset": [40, 0],
+                                "color": "$main_header_text_color",
+                                "size": ["100% - 80px", "default"],
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "text": "#form_text"
+                            }
+                        }
+                    ]
+                }
+              },
+            {
+                "padding": {
+                    "type": "panel",
+                    "size": [ "100%", 8 ]
+                }
+            },
+			{
+				"icon_grid": {
+					"type": "grid",
+					"size": ["100%", "100%c"],
+					"grid_dimensions": [3, 3],
+					"grid_item_template": "mineplex_server_form_builtin_image_grid.image_button",
+					"grid_fill_direction": "horizontal",
+					"grid_rescaling_type": "horizontal",
+					"anchor_from": "center",
+					"anchor_to": "center",
+
+					"factory": {
+						"name": "buttons",
+						"control_name": "mineplex_server_form_builtin_image_grid.image_button"
+					},
+
+					"collection_name": "form_buttons",
+					"bindings": [
+						{
+							"binding_name": "#form_button_length",
+							"binding_name_override": "#maximum_grid_items"
+						}
+					]
+				}
+			}
+		]
+	},
+
+    "image_button": {
+		"type": "stack_panel",
+        "size": [120, 115],
+        "orientation": "horizontal",
+        "anchor_to": "center",
+        "anchor_from": "center",
+        "controls": [
+            {
+                "texture_container": {
+                    "type": "panel",
+                    "size": [0, "100%c"],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "image",
+                            "resolve_sibling_scope": true,
+                            "source_property_name": "(not (#texture = ''))",
+                            "target_property_name": "#visible"
+                        }
+                    ],
+
+                    "controls": [
+                        {
+                            "image": {
+                                "type": "image",
+                                "layer": 20,
+                                "size": [120, 115],
+                                "offset": [60, 0],
+                                "keep_ratio": false,
+                                "bindings":[
+                                        {
+                                            "binding_name": "#form_button_texture",
+                                            "binding_name_override": "#texture",
+                                            "binding_type": "collection",
+                                            "binding_collection_name": "form_buttons"
+                                        },
+                                        {
+                                            "binding_type": "view",
+                                            "source_property_name": "(not ((#texture = '') or (#texture = 'loading')))",
+                                            "target_property_name": "#visible"
+                                        }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "texture_container": {
+                    "type": "panel",
+                    "size": [0, "100%c"],
+                    "controls": [
+                        {
+                            "image": {
+                                "type": "image",
+                                "layer": 21,
+                                "size": [120, 115],
+                                "offset": [60, 0],
+                                "alpha": 0.9,
+                                "fill": true,
+                                "keep_ratio": false,
+                                "texture": "textures/ui/mineplex/black_gradient"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "form_button@common_buttons.light_text_button": {
+                    "$hover_text_color": [1, 1, 1],
+                    "$default_text_color": [0.8, 0.8, 0.8],
+                    "$hover_button_texture|default": "textures/ui/button_borderless_light",
+                    "$pressed_button_name": "button.form_button_click",
+                    "$button_image": "",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "size": ["100%", "100%"],
+                    "$button_offset": [0, 25],
+                    "$button_text": "#form_button_text",
+                    "$button_text_binding_type": "collection",
+                    "$button_text_grid_collection_name": "form_buttons",
+                    "$button_text_max_size": ["120%", 10],
+                    "layer": 30,
+                    "$new_ui_label_offset": [0, 45],    // Offset the text
+                    "$button_font_size": "medium",
+                    "bindings": [
+                        {
+                            "binding_type": "collection_details",
+                            "binding_collection_name": "form_buttons"
+                        }
+                    ]
+                }
+            }
+        ]
+	}
+}

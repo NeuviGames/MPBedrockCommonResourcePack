@@ -1,0 +1,24 @@
+{
+    "namespace": "hud_screen",
+
+    "hud_title_text": {
+        "type": "stack_panel",
+        "orientation": "vertical",
+        "offset": [ 0, -19 ],
+        "layer": 1,
+        "alpha": "@hud.anim_title_text_alpha_in",
+        "propagate_alpha": true,
+        "controls": [
+            { "title_frame@mineplex_hud_screen.title_frame": {} },
+            { "subtitle_frame@mineplex_hud_screen.subtitle_frame": {} }
+        ]
+    },
+
+    "hud_actionbar_text": {
+        "type": "image",
+        "size": [0, 0],
+        "controls": [
+            { "hud_actionbar_text@mineplex_hud_screen.hud_actionbar_text": {} }
+        ]
+    }
+}

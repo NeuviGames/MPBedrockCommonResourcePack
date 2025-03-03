@@ -1,0 +1,13 @@
+{
+    "namespace": "scoreboard",
+    
+    "scoreboard_sidebar": {
+      "type": "panel",
+      "size": ["100%", "100%"],
+      "controls": [
+        {
+          "sidebar@mineplex_scoreboards.scoreboard_sidebar": {}
+        }
+      ]
+    }
+  }

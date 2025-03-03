@@ -1,0 +1,23 @@
+{
+    "format_version": 2,
+    "header": {
+        "min_engine_version": [1, 21, 21],
+        "name": "Mineplex Compatibility",
+        "description": "Used to allow multiple games to easily extend common JSON UI elements without interferring with one another.",
+        "uuid": "e7d40767-2588-4525-ba06-bac7057857a5",
+        "version": [1, 0, 0]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "description": "Resources",
+            "uuid": "7fcb4dfc-473c-463d-8c99-8c41bbd6794b",
+            "version": [1, 0, 0]
+        }
+    ],
+    "metadata": {
+        "authors": [
+            "Neuvi Games"
+        ]
+    }
+}
